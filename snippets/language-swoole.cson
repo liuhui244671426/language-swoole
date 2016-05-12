@@ -32,6 +32,18 @@
   'swoole_server->shutdown':
     'prefix':'swservshutdown'
     'body':'shutdown();$0'
+  'swoole_server->after':
+    'prefix':'swservafter'
+    'body':'after(\$after_time_ms, \$callback_function);$0'
+  'swoole_server->defer':
+    'prefix':'swservdefer'
+    'body':'defer(\$callback_function);$0'
+  'swoole_server->clearTimer':
+    'prefix':'swservclearTimer'
+    'body':'clearTimer(\$timer_id);$0'
+  'swoole_server->close':
+    'prefix':'swservclose'
+    'body':'close(\$fd, false);$0'
 
   'swoole_client':
     'prefix':'nswclit'
