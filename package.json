@@ -1,7 +1,7 @@
 {
   "name": "language-swoole",
   "main": "./snippets/language-swoole",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Add syntax highlighting and snippets to Swoole files in Atom",
   "keywords": [],
   "activationCommands": {
