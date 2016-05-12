@@ -1,0 +1,65 @@
+'.source.php':
+  'swoole_server':
+    'prefix':'nswserv'
+    'body':'new swoole_server(\$ip, \$port, SWOOLE_BASE, SWOOLE_SOCK_TCP);$0'
+  'swoole_server->set':
+    'prefix':'swservset'
+    'body':'set(array\(\n
+\t\'reactor_num\' \=\> 2\, \/\/reactor thread num\n
+\t\'worker_num\' \=\> 4\,    \/\/worker process num\n
+\t\'backlog\' \=\> 128\,   \/\/listen backlog\n
+\t\'max_request\' \=\> 50\,\n
+\t\'dispatch_mode\' \=\> 1\,\n
+\));$0'
+  'swoole_server->on':
+    'prefix':'swservon'
+    'body':'on(\$event, \$callback_function);$0'
+  'swoole_server->addListener':
+    'prefix':'swservaddlisten'
+    'body':'addListener(\$host, \$port, \$type = SWOOLE_SOCK_TCP);$0'
+  'swoole_server->addProcess':
+    'prefix':'swservpro'
+    'body':'addProcess(\$process);$0'
+  'swoole_server->listen':
+    'prefix':'swservlisten'
+    'body':'listen(\$host, \$port, \$type = SWOOLE_SOCK_TCP);$0'
+  'swoole_server->reload':
+    'prefix':'swservreload'
+    'body':'reload( ${1:false} );$0'
+  'swoole_server->stop':
+    'prefix':'swservstop'
+    'body':'stop();$0'
+  'swoole_server->shutdown':
+    'prefix':'swservshutdown'
+    'body':'shutdown();$0'
+
+  'swoole_client':
+    'prefix':'nswclit'
+    'body':'new swoole_client(SWOOLE_SOCK_TCP);$0'
+  'swoole_process':
+    'prefix':'nswpro'
+    'body':'new swoole_process(\'callback_function\', true);$0'
+  'swoole_lock':
+    'prefix':'nswlock'
+    'body':'new swoole_lock(SWOOLE_MUTEX);$0'
+  'swoole_buffer':
+    'prefix':'nswbuff'
+    'body':'new swoole_buffer(\$size \= 128);$0'
+  'swoole_table':
+    'prefix':'nswtabl'
+    'body':'new swoole_table(\$size \= 128);$0'
+  'swoole_atomic':
+    'prefix':'nswatom'
+    'body':'new swoole_atomic(\$init_value \= 0);$0'
+  'swoole_http_server':
+    'prefix':'nswhttpserv'
+    'body':'new swoole_http_server(\$ip, \$port);$0'
+  'swoole_http_request':
+    'prefix':'nswhttpreq'
+    'body':'new swoole_http_request();$0'
+  'swoole_http_response':
+    'prefix':'nswhttpresp'
+    'body':'new swoole_http_response();$0'
+  'swoole_websocket':
+    'prefix':'nswws'
+    'body':'new swoole_websocket_server(\$ip, \$port);$0'
